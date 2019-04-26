@@ -1,32 +1,19 @@
 import React, { Component } from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
 
 class WholeHog extends Component {
+	hogImgConvert = () => {
+        const imgUrl = '../hog-imgs/' + this.props.name.replace(/ /g, '_') + '.jpg';
+        import image from imgUrl
+		return image;
+	};
+
 	render() {
 		return (
-            <div class="ui card">
-                <div class="image">
-                    <img src="/images/avatar2/large/kristy.png">
-                </div>
-                    <div class="content">
-                        <a class="header">Kristy</a>
-                        <div class="meta">
-                            <span class="date">Joined in 2013</span>
-                        </div>
-                        <div class="description">
-                            Kristy is an art director living in New York.
-                         </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="user icon"></i>
-                            22 Friends
-                        </a>
-                    </div>
-                </div>
-                </div>
-                
-        )
+			<div>
+				<h3>{this.props.name}</h3>
+				<img src={require(this.hogImgConvert())} />
+			</div>
+		);
 	}
 }
 
