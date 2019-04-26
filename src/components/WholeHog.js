@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import hogDeetz from './HogDeetz';
+import HogDeetz from './HogDeetz';
 
 class WholeHog extends Component {
 	state = {
@@ -13,7 +13,7 @@ class WholeHog extends Component {
 	};
 
 	render() {
-		// console.log(this.state.clicked);
+		console.log(this.state.clicked);
 		return (
 			<div className="ui card" onClick={this.handleClick}>
 				<div className="content">
@@ -23,21 +23,8 @@ class WholeHog extends Component {
 					<img src={'/hog-imgs/' + this.props.name.toLowerCase().replace(/ /g, '_') + '.jpg'} />
 				</div>
 
-				{this.state.clicked ? <hogDeetz {...this.props.hog} /> : null}
-
-				{/* <div className="content">
-					<span className="right floated">
-						<i className="heart outline like icon" />
-						17 likes
-					</span>
-					<i className="comment icon" />
-					3 comments
-				</div> */}
-				{/* <div className="extra content">
-					<div className="ui large transparent left icon input">
-						<i className="heart outline icon" />
-						<input type="text" placeholder="Add Comment..." />
-					</div> */}
+				{this.state.clicked ? <HogDeetz {...this.props} /> : null}
+				<button onClick={this.goAway}>Tell pig to go away</button>
 			</div>
 		);
 	}
