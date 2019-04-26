@@ -9,7 +9,7 @@ class Hogdex extends Component {
 	hog = () => this.props.hogs.map((hog) => <WholeHog {...hog} />); //spread out the entire hog obj into components
 
 	render() {
-		return <div>{this.hog()}</div>;
+		return <div className="ui three cards">{this.hog()}</div>;
 	}
 }
 
