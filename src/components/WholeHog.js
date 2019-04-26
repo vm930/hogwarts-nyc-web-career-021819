@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
+import hogDeetz from './HogDeetz';
 
 class WholeHog extends Component {
-	// hogImgConvert = () => {
-  //       const imgUrl = ;
-	// 	return imgUrl;
-	// };
+	state = {
+		clicked: false
+	};
+
+	handleClick = (e) => {
+		this.setState({
+			clicked: !this.state.clicked
+		});
+	};
 
 	render() {
+		// console.log(this.state.clicked);
 		return (
-			// <div>
-			// 	<h3>{this.props.name}</h3>
-			// 	<img src= />
-			// </div>
-			<div className="ui card">
-  <div className="content">
-    <div className="right floated meta">14h</div>
-  </div>
-  <div className="image">
-    <img src={'/hog-imgs/' + this.props.name.toLowerCase().replace(/ /g, '_') + '.jpg'}/>
-  </div>
-  <div className="content">
-    <span className="right floated">
-      <i className="heart outline like icon"></i>
-      17 likes
-    </span>
-    <i className="comment icon"></i>
-    3 comments
-  </div>
-  <div className="extra content">
-    <div className="ui large transparent left icon input">
-      <i className="heart outline icon"></i>
-      <input type="text" placeholder="Add Comment..."/>
-    </div>
-  </div>
-</div>
+			<div className="ui card" onClick={this.handleClick}>
+				<div className="content">
+					<div className="header">{this.props.name}</div>
+				</div>
+				<div className="image">
+					<img src={'/hog-imgs/' + this.props.name.toLowerCase().replace(/ /g, '_') + '.jpg'} />
+				</div>
 
+				{this.state.clicked ? <hogDeetz {...this.props.hog} /> : null}
+
+				{/* <div className="content">
+					<span className="right floated">
+						<i className="heart outline like icon" />
+						17 likes
+					</span>
+					<i className="comment icon" />
+					3 comments
+				</div> */}
+				{/* <div className="extra content">
+					<div className="ui large transparent left icon input">
+						<i className="heart outline icon" />
+						<input type="text" placeholder="Add Comment..." />
+					</div> */}
+			</div>
 		);
 	}
 }
